@@ -19,10 +19,10 @@ links to the section you need.
 - [Run with Cosmos Framework](#run-with-cosmos-framework)
   - [Quickstart](#quickstart)
   - [Cosmos Framework Notebook Walkthrough](#cosmos-framework-notebook-walkthrough)
+  - [Policy server](#policy-server)
 - [Run with vLLM-Omni](#run-with-vllm-omni)
   - [Quickstart](#quickstart-1)
   - [Notebook walkthrough](#notebook-walkthrough)
-- [Policy Server](#policy-server)
 
 
 ## Action Definition
@@ -74,7 +74,7 @@ visualize the generated videos:
 - [`run_id_with_cosmos_framework.ipynb`](./run_id_with_cosmos_framework.ipynb) —
   inverse dynamics, predicting ego-motion trajectories from input AV videos.
 
-### Run policy with framework
+### Policy server
 To serve Cosmos3-Nano-Policy-DROID as a policy server that streams actions to a
 client driving a simulated or real robot, see
 [`run_policy_with_cosmos_framework.md`](./run_policy_with_cosmos_framework.md).
