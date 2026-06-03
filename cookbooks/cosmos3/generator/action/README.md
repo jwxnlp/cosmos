@@ -74,6 +74,11 @@ visualize the generated videos:
 - [`run_id_with_cosmos_framework.ipynb`](./run_id_with_cosmos_framework.ipynb) —
   inverse dynamics, predicting ego-motion trajectories from input AV videos.
 
+### Run policy with framework
+To serve Cosmos3-Nano-Policy-DROID as a policy server that streams actions to a
+client driving a simulated or real robot, see
+[`run_policy_with_cosmos_framework.md`](./run_policy_with_cosmos_framework.md).
+
 ## Run with vLLM-Omni
 
 ### Quickstart
@@ -118,11 +123,7 @@ write outputs under `outputs/cosmos3_action_vllm/`:
 - [`run_id_with_vllm.ipynb`](./run_id_with_vllm.ipynb) — inverse dynamics,
   predicting ego-motion trajectories from input AV videos.
 
-## Policy Server
 
-To serve Cosmos3-Nano-Policy-DROID as a policy server that streams actions to a
-client driving a simulated or real robot, see
-[`run_policy_with_cosmos_framework.md`](./run_policy_with_cosmos_framework.md).
 
 ## TODO
 
