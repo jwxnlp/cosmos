@@ -8,6 +8,10 @@ under [`assets/`](./assets) and cover two tasks:
   plus an action trajectory (AV, DROID, and UMI robotics examples).
 - **Inverse dynamics (`id`)** — predict ego-motion trajectories from input AV
   videos.
+- **Policy** — act as a closed-loop control policy: given the current
+  observation, a task goal, and optionally the robot's proprioceptive state,
+  predict the next actions to execute on a robot, streaming them continuously to
+  drive a simulated or real robot.
 
 Environment setup for both backends is centralized in the shared
 [Cosmos3 cookbooks environment setup](../../README.md) guide; each backend below
@@ -15,7 +19,6 @@ links to the section you need.
 
 ## Table of Contents
 
-- [Action Definition](#action-definition)
 - [Run with Cosmos Framework](#run-with-cosmos-framework)
   - [Quickstart](#quickstart)
   - [Cosmos Framework Notebook Walkthrough](#cosmos-framework-notebook-walkthrough)
