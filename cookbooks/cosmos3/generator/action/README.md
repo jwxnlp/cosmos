@@ -5,13 +5,10 @@ PyTorch (Cosmos Framework) and vLLM-Omni. Both backends use the sample assets
 under [`assets/`](./assets) and cover two tasks:
 
 - **Forward dynamics (`fd`)** — predict future observations from a start image
-  plus an action trajectory (AV, DROID, and UMI robotics examples).
+  plus an action trajectory (AV, DROID, and UMI robotics examples) using the Cosmos3-Nano.
 - **Inverse dynamics (`id`)** — predict ego-motion trajectories from input AV
-  videos.
-- **Policy (`policy`)** — act as a closed-loop control policy: given the current
-  observation, a task goal, and optionally the robot's proprioceptive state,
-  predict the next actions to execute on a robot, streaming them continuously to
-  drive a simulated or real robot.
+  videos using the Cosmos3-Nano.
+- **Policy (`policy`)** — predict future observations and action trajectories from a start image, task instruction, and state for DROID robot using the Cosmos3-Nano-Policy-DROID.
 
 Environment setup for both backends is centralized in the shared
 [Cosmos3 cookbooks environment setup](../../README.md) guide; each backend below
@@ -21,8 +18,7 @@ links to the section you need.
 
 - [Run with Cosmos Framework](#run-with-cosmos-framework)
   - [Quickstart](#quickstart)
-  - [Cosmos Framework Notebook Walkthrough](#cosmos-framework-notebook-walkthrough)
-  - [Policy server](#policy-server)
+  - [Cosmos Framework Walkthrough](#cosmos-framework-walkthrough)
 - [Run with vLLM-Omni](#run-with-vllm-omni)
   - [Quickstart](#quickstart-1)
   - [Notebook walkthrough](#notebook-walkthrough)
@@ -67,20 +63,17 @@ assemble ready-to-run specs for AV, DROID, and UMI examples from the checked-in
 assets under [`assets/`](./assets). Outputs are written under the framework
 checkout.
 
-### Cosmos Framework Notebook Walkthrough
+### Cosmos Framework Walkthrough
 
-The Cosmos Framework notebooks build their input spec, run inference, and
+The Cosmos Framework build their input spec, run inference, and
 visualize the generated videos:
 
 - [`run_fd_with_cosmos_framework.ipynb`](./run_fd_with_cosmos_framework.ipynb) —
-  forward dynamics for AV, DROID, and UMI robotics examples.
+  forward dynamics for AV, DROID, and UMI robotics examples using Cosmos3-Nano.
 - [`run_id_with_cosmos_framework.ipynb`](./run_id_with_cosmos_framework.ipynb) —
-  inverse dynamics, predicting ego-motion trajectories from input AV videos.
+  inverse dynamics, predicting ego-motion trajectories from input AV videos using Cosmos3-Nano.
+- [`run_policy_with_cosmos_framework.md`](./run_policy_with_cosmos_framework.md) - policy, predicting future observations and action trajectories for DROID robot using Cosmos3-Nano-Policy-DROID.
 
-### Policy server
-To serve Cosmos3-Nano-Policy-DROID as a policy server that streams actions to a
-client driving a simulated or real robot, see
-[`run_policy_with_cosmos_framework.md`](./run_policy_with_cosmos_framework.md).
 
 ## Run with vLLM-Omni
 
@@ -116,7 +109,7 @@ action trajectory. The vLLM notebook builds the full request body for AV,
 DROID, and UMI examples, including autoregressive chunked generation for the
 robotics examples.
 
-### Notebook walkthrough
+### VLLM-Omni Notebook Walkthrough
 
 The vLLM-Omni notebooks send requests through the OpenAI-compatible video API and
 write outputs under `outputs/cosmos3_action_vllm/`:
