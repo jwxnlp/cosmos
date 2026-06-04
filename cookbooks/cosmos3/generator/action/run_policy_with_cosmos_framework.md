@@ -100,4 +100,4 @@ python policies/cosmos3/run.py \
 
 Example output:
 
-<video controls width="864" height="480" src="https://github.com/NVIDIA/cosmos/raw/main/cookbooks/cosmos3/generator/action/assets/videos/robolab_example_rollout.mp4"></video>
+<video controls width="864" height="480" src="https://github.com/user-attachments/assets/794a4bea-e845-44c8-bf51-f3c2bf9226b6"></video>
