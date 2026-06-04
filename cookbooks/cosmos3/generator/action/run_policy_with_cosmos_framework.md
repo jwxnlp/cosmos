@@ -2,14 +2,12 @@
 
 Cosmos3-Nano-Policy-DROID is served by a policy **Server** that streams actions to a **Client** driving a simulated or real robot. This example uses [`RoboLab`](https://github.com/NVlabs/RoboLab), a simulation benchmark for task-generalist policies, as the client. Start the server first, then connect the client.
 
-For the Cosmos3-Nano action-generation examples (forward and inverse dynamics across the Cosmos Framework and vLLM-Omni backends), see [`README.md`](./README.md).
-
 ## Table of Contents
 
-- [Server](#server)
-- [Client](#client)
+- [Policy Server](#server)
+- [Simulation Client](#client)
 
-## Server
+## Policy Server
 
 First, clone [`cosmos-framework`](https://github.com/NVIDIA/cosmos-framework):
 
@@ -63,7 +61,7 @@ python -m cosmos_framework.scripts.action_policy_server_robolab \
   --port 8000
 ```
 
-## Client
+## Simulation Client
 
 Clone [`RoboLab`](https://github.com/NVlabs/RoboLab):
 
@@ -102,4 +100,4 @@ python policies/cosmos3/run.py \
 
 Example output:
 
-<video controls width="864" height="480" src="https://github.com/NVIDIA/cosmos/blob/main/cookbooks/cosmos3/generator/action/assets/videos/robolab_example_rollout.mp4></video>
+<video controls width="864" height="480" src="assets/videos/robolab_example_rollout.mp4"></video>
