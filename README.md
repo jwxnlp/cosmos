@@ -7,7 +7,8 @@
 
 <p align="center">
   <a href="https://www.nvidia.com/en-us/ai/cosmos/">Website</a> |
-  <a href="https://github.com/NVIDIA/cosmos-framework">Framework</a>
+  <a href="https://github.com/NVIDIA/cosmos-framework">Framework</a> |
+  <a href="https://huggingface.co/collections/nvidia/cosmos3">Models</a> |
 </p>
 
 ## Table of Contents
