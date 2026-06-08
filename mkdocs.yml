@@ -15,8 +15,10 @@ edit_uri: edit/main/
 
 theme:
   name: material
-  logo: cosmos-logo-thumbnail.png
-  favicon: cosmos-logo-thumbnail.png
+  # NOTE: assets must live in a SUBDIRECTORY. The same-dir plugin drops
+  # non-Markdown files at the repo root, so a root-level logo would 404.
+  logo: branding/cosmos-logo-thumbnail.png
+  favicon: branding/cosmos-logo-thumbnail.png
   icon:
     repo: fontawesome/brands/github
   palette:
@@ -43,6 +45,9 @@ theme:
     - navigation.indexes
     - navigation.footer
     - toc.follow
+    # Render each page's table of contents INSIDE the left sidebar (Sana-style),
+    # instead of a separate right-hand column. Left = jump index, middle = content.
+    - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -51,6 +56,9 @@ theme:
 # docs_dir is the repo root so existing files are published in place (no moves).
 # The `same-dir` plugin is what makes pointing docs_dir at the config dir legal.
 docs_dir: .
+
+extra_css:
+  - branding/nvidia.css
 
 plugins:
   - same-dir
