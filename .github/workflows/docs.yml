@@ -43,6 +43,9 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          # Our deps file isn't named requirements.txt, so point pip caching at it
+          # explicitly — otherwise setup-python errors with "No file ... matched".
+          cache-dependency-path: docs-requirements.txt
 
       - name: Install dependencies
         run: pip install -r docs-requirements.txt
