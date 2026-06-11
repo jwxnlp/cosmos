@@ -100,13 +100,13 @@ Points and trajectories use `point_2d`:
 
 ## Examples
 
-The examples below mirror the notebook prompts. Media references point to the local assets used by `run_with_vllm.ipynb` unless an external URL is shown. The following examples are tested with `Cosmos3-Super-Reasoner`
+The examples below mirror the notebook prompts. Media references point to the local assets used by `run_with_vllm.ipynb`. The following examples are tested with `Cosmos3-Super-Reasoner`
 
 ### Image Caption
 
 Media:
 
-![robot_153.jpg](https://github.com/nvidia-cosmos/cosmos-dependencies/raw/refs/heads/assets/cosmos3/inputs/vision/robot_153.jpg)
+![robot_153.jpg](./assets/robot_153.jpg)
 
 User Prompt:
 

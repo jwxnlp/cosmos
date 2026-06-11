@@ -29,7 +29,7 @@ cat > outputs/cookbooks/cosmos3/reasoner/inputs/robot_image.json <<'JSON'
   "model_mode": "reasoner",
   "name": "robot_image",
   "prompt": "Describe what is happening in this image in one sentence.",
-  "vision_path": "https://github.com/nvidia-cosmos/cosmos-dependencies/raw/refs/heads/assets/cosmos3/inputs/vision/robot_153.jpg",
+  "vision_path": "../../cookbooks/cosmos3/reasoner/assets/robot_153.jpg",
   "enable_sound": false
 }
 JSON
@@ -80,12 +80,11 @@ guide and point the client at `http://localhost:8001/v1`.
 Once the server is ready, query it with the OpenAI client:
 
 ```python
+from pathlib import Path
 import openai
 
-image_url = (
-    "https://github.com/nvidia-cosmos/cosmos-dependencies/raw/refs/heads/"
-    "assets/cosmos3/inputs/vision/robot_153.jpg"
-)
+image_path = Path("assets/robot_153.jpg").resolve()
+image_url = image_path.as_uri()
 
 client = openai.OpenAI(api_key="EMPTY", base_url="http://localhost:8000/v1")
 
@@ -134,12 +133,14 @@ Once the server is up, query it with the OpenAI client (the served model name is
 `nvidia/cosmos3-nano-reasoner`, or `nvidia/cosmos3-super-reasoner` for Super):
 
 ```python
+import base64
+import mimetypes
+from pathlib import Path
 import openai
 
-image_url = (
-    "https://github.com/nvidia-cosmos/cosmos-dependencies/raw/refs/heads/"
-    "assets/cosmos3/inputs/vision/robot_153.jpg"
-)
+image_path = Path("assets/robot_153.jpg").resolve()
+mime = mimetypes.guess_type(image_path.name)[0] or "application/octet-stream"
+image_url = f"data:{mime};base64,{base64.b64encode(image_path.read_bytes()).decode('ascii')}"
 
 client = openai.OpenAI(api_key="not-used", base_url="http://127.0.0.1:8000/v1")
 

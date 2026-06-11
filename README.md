@@ -515,21 +515,25 @@ docker run -it --rm --name=$CONTAINER_NAME \
 The OpenAI-compatible API is then available at `http://127.0.0.1:8000/v1`. Query it with `curl`:
 
 ```shell
+IMAGE_DATA_URI="data:image/jpeg;base64,$(base64 -w 0 cookbooks/cosmos3/reasoner/assets/robot_153.jpg)"
+
 curl -X POST 'http://127.0.0.1:8000/v1/chat/completions' \
   -H 'Accept: application/json' \
   -H 'Content-Type: application/json' \
-  -d '{
+  --data-binary @- <<JSON
+{
     "model": "nvidia/cosmos3-nano-reasoner",
     "messages": [
       {"role": "system", "content": "You are a helpful assistant."},
       {"role": "user", "content": [
-        {"type": "image_url", "image_url": {"url": "https://github.com/nvidia-cosmos/cosmos-dependencies/raw/refs/heads/assets/cosmos3/inputs/vision/robot_153.jpg"}},
+        {"type": "image_url", "image_url": {"url": "$IMAGE_DATA_URI"}},
         {"type": "text", "text": "Describe what is happening in this image in one sentence."}
       ]}
     ],
     "max_tokens": 256,
     "stream": false
-  }'
+  }
+JSON
 ```
 
 Or with the OpenAI Python client:
